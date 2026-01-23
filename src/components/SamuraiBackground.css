@@ -1,0 +1,41 @@
+/* src/components/SamuraiBackground.css */
+
+.bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    /* Behind everything */
+
+    /* --- 1. THE IMAGE --- */
+    /* Make sure background.jpg is in src/assets/ */
+    background-image: url('../assets/background.png');
+    background-size: cover;
+    /* Scales image to fill screen */
+    background-position: center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+
+    /* --- 2. THE CINEMATIC TINT --- */
+    /* This adds a dark black/red tint so white text pops */
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+    /* Blends the black into the image */
+}
+
+/* Optional: Add a subtle slow zoom effect for "Life" */
+.bg-container {
+    animation: slowZoom 20s infinite alternate;
+}
+
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}

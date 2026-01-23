@@ -1,20 +1,28 @@
-import { Link } from "react-router-dom";
-import "./Home.css";
+// src/pages/Home.jsx
+import React from 'react';
+import Navbar from '../components/Navbar'; // Assuming you have this
+//import Petals from '../components/Petals';
+import SamuraiBackground from '../components/SamuraiBackground'; // <--- IMPORT THIS
 
-function Home() {
+const Home = () => {
   return (
-    <section className="home">
-      <h1 className="home-title">Shadow of Samurai</h1>
+    <div className="home-container">
 
-      <div className="home-links">
-        <Link to="/about">About</Link>
-        <Link to="/themes">Themes</Link>
-        <Link to="/timeline">Timeline</Link>
-        <Link to="/prizes">Prizes</Link>
-        <Link to="/faq">FAQ</Link>
+      {/* 1. PUT THE BACKGROUND FIRST (So it sits behind everything) */}
+      <SamuraiBackground />
+
+      {/* 2. PUT THE PETALS SECOND */}
+      <Petals />
+
+      {/* 3. YOUR MAIN CONTENT */}
+      <div className="content-layer">
+        <h1>HACKSTREET</h1>
+        <p>Shadow of the Samurai</p>
+        <button className="enter-btn">ENTER DOJO</button>
       </div>
-    </section>
+
+    </div>
   );
-}
+};
 
 export default Home;

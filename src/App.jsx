@@ -1,22 +1,26 @@
-import { Routes, Route } from "react-router-dom";
-
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Themes from "./pages/Themes";
-import Timeline from "./pages/Timeline";
-import Prizes from "./pages/Prizes";
-import FAQ from "./pages/FAQ";
+// src/App.jsx
+import Petals from './components/Petals';
+import SamuraiBackground from './components/SamuraiBackground';
+import './App.css';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/themes" element={<Themes />} />
-      <Route path="/timeline" element={<Timeline />} />
-      <Route path="/prizes" element={<Prizes />} />
-      <Route path="/faq" element={<FAQ />} />
-    </Routes>
+    <div className="main-wrapper">
+
+      {/* LAYER 1: The Background Image */}
+      <SamuraiBackground />
+
+      {/* LAYER 2: The Moving Petals */}
+      <Petals />
+
+      {/* LAYER 3: The Text Content */}
+      <div className="content-layer">
+        <h1>HACKSTREET</h1>
+        <p>Shadow of the Samurai</p>
+        <button className="enter-btn">ENTER DOJO</button>
+      </div>
+
+    </div>
   );
 }
 
