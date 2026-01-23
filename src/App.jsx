@@ -6,17 +6,21 @@ import Themes from "./pages/Themes";
 import Timeline from "./pages/Timeline";
 import Prizes from "./pages/Prizes";
 import FAQ from "./pages/FAQ";
+import Nav from "./components/Nav";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/themes" element={<Themes />} />
-      <Route path="/timeline" element={<Timeline />} />
-      <Route path="/prizes" element={<Prizes />} />
-      <Route path="/faq" element={<FAQ />} />
-    </Routes>
+    <>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/themes" element={<Themes />} />
+        <Route path="/timeline" element={<Timeline />} />
+        <Route path="/prizes" element={<Prizes />} />
+        <Route path="/faq" element={<FAQ />} />
+      </Routes>
+    </>
   );
 }
 
