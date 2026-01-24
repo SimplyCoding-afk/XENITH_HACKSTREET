@@ -1,0 +1,107 @@
+/* src/components/ScrollNav.css */
+
+/* 1. IMPORT THE NEW FONT (Cinzel) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap');
+
+.scroll-nav-container {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 100;
+    padding: 10px;
+}
+
+/* --- THE SCROLL OBJECT --- */
+.scroll-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Deep black shadow to blend into the dark water */
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+}
+
+.scroll-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    /* Subtle white/moonlight glow on hover */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+}
+
+/* --- THE DARK HANDLES (Ancient Wood) --- */
+.scroll-handle {
+    width: 14px;
+    height: 52px;
+    /* Very dark, almost black, with a hint of red wood */
+    background: linear-gradient(to right, #0f0505, #3e1a1a, #0f0505);
+    border-radius: 4px;
+    box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    border: 1px solid #000;
+}
+
+/* --- THE ASH / CHARCOAL PAPER --- */
+.scroll-paper {
+    height: 40px;
+    min-width: 90px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    /* THE CHANGE: Dark Grey/Black Gradient to match the misty background */
+    background: linear-gradient(to bottom,
+            #1a1a1a 0%,
+            /* Black-ish top */
+            #2e2e2e 50%,
+            /* Dark Grey middle */
+            #1a1a1a 100%
+            /* Black-ish bottom */
+        );
+
+    /* Subtle dark borders */
+    border-top: 1px solid #3d3d3d;
+    border-bottom: 1px solid #000;
+}
+
+/* --- THE TEXT (Cinzel Font) --- */
+.scroll-text {
+    font-family: 'Cinzel', serif;
+    /* The new Epic Font */
+    font-weight: 600;
+
+    /* Silver / Moonlight color to pop against dark paper */
+    color: #c0c0c0;
+
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    user-select: none;
+
+    /* Slight glow to make it readable */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    transition: color 0.3s ease;
+}
+
+/* Make text turn Red on Hover */
+.scroll-item:hover .scroll-text {
+    color: #ff0033;
+    /* Samurai Red */
+    text-shadow: 0 0 8px rgba(255, 0, 51, 0.5);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .scroll-nav-container {
+        bottom: 20px;
+        gap: 10px;
+        width: 95%;
+    }
+
+    .scroll-item {
+        transform: scale(0.85);
+    }
+}

@@ -11,7 +11,7 @@
 
     /* --- 1. THE IMAGE --- */
     /* Make sure background.jpg is in src/assets/ */
-    background-image: url('../assets/background.png');
+    background-image: url('../assets/bg4.png');
     background-size: cover;
     /* Scales image to fill screen */
     background-position: center;
@@ -20,7 +20,7 @@
 
     /* --- 2. THE CINEMATIC TINT --- */
     /* This adds a dark black/red tint so white text pops */
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.15);
     background-blend-mode: overlay;
     /* Blends the black into the image */
 }

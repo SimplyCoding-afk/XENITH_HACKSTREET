@@ -33,7 +33,7 @@ const Petals = () => {
                         anim: {
                             enable: true,
                             speed: 0.5,
-                            opacity_min: 0.4,
+                            opacity_min: 0,
                             sync: false
                         }
                     },

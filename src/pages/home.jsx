@@ -1,28 +1,23 @@
-// src/pages/Home.jsx
 import React from 'react';
-import Navbar from '../components/Navbar'; // Assuming you have this
-//import Petals from '../components/Petals';
-import SamuraiBackground from '../components/SamuraiBackground'; // <--- IMPORT THIS
+import Petals from '../components/Petals';
+import SamuraiBackground from '../components/SamuraiBackground';
+import Samurai from '../components/Samurai'; // <--- Import him
 
 const Home = () => {
   return (
     <div className="home-container">
-
-      {/* 1. PUT THE BACKGROUND FIRST (So it sits behind everything) */}
       <SamuraiBackground />
 
-      {/* 2. PUT THE PETALS SECOND */}
+      {/* The Samurai stands on the platform */}
+      <Samurai />
+
+      {/* Petals fall IN FRONT of the samurai */}
       <Petals />
 
-      {/* 3. YOUR MAIN CONTENT */}
       <div className="content-layer">
         <h1>HACKSTREET</h1>
-        <p>Shadow of the Samurai</p>
         <button className="enter-btn">ENTER DOJO</button>
       </div>
-
     </div>
   );
 };
-
-export default Home;
