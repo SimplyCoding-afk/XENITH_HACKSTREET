@@ -1,16 +1,3 @@
-/*import "./Themes.css";
-
-function Themes() {
-  return (
-    <section className="themes">
-      <h1>Themes</h1>
-      <p>Event themes go here</p>
-    </section>
-  );
-}
-
-export default Themes;*/
-
 import React from "react";
 import "./themes.css";
 
@@ -67,7 +54,7 @@ const themes = [
     icon: "✨",
     variant: "theme-card--crimson",
     bgImage: "/images/themes/Bg_image.jpeg"
-  },
+  }
 ];
 
 /* ===============================
@@ -76,48 +63,44 @@ const themes = [
 const Themes = () => {
   return (
     <section className="themes" id="themes">
-      {/* Header */}
+
       <div className="themes__header">
         <h2 className="themes__title">
-          Hackathon Themes <span style={{ color: "#b3001b" }}>影</span>
+          Hackathon Themes <span style={{ color: "#b3001b" }}></span>
         </h2>
-        <p className="themes__subtitle">
-          Choose your path. Every shadow tells a story.
-        </p>
+       
       </div>
 
-      {/* Themes Grid */}
       <div className="themes__grid">
         {themes.map((theme) => (
-          <div
-            key={theme.id}
-            className={`theme-card ${theme.variant}`}
-          >
-            {/* BACKGROUND IMAGE LAYER */}
-            <div 
-              className="theme-card__bg" 
-              style={{ backgroundImage: `url(${theme.bgImage})` }}
-            ></div>
+          <div key={theme.id} className={`theme-card ${theme.variant}`}>
+            
+            <div className="theme-card__inner">
 
-            {/* Always visible content */}
-            <div className="theme-card__icon">
-              {theme.icon}
+              {/* FAN FRONT */}
+              <div className="theme-card__fan"></div>
+
+              {/* BACK : ORIGINAL CARD */}
+              <div className="theme-card__back">
+
+                <div
+                  className="theme-card__bg"
+                  style={{ backgroundImage: `url(${theme.bgImage})` }}
+                ></div>
+
+                <div className="theme-card__icon">{theme.icon}</div>
+
+<div className="theme-card__content">
+  <h3 className="theme-card__heading">
+    {theme.title} <span style={{ color: "#b3001b" }}>影</span>
+  </h3>
+  <p className="theme-card__desc">{theme.description}</p>
+</div>
+
+
+              </div>
             </div>
 
-            <h3 className="theme-card__title">
-              {theme.title}{" "}
-              <span style={{ color: "#b3001b" }}>影</span>
-            </h3>
-
-            {/* Revealed on hover */}
-            <div className="theme-card__content">
-              <p className="theme-card__tagline">
-                {theme.tagline}
-              </p>
-              <p className="theme-card__desc">
-                {theme.description}
-              </p>
-            </div>
           </div>
         ))}
       </div>
