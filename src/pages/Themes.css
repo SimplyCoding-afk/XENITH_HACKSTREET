@@ -259,7 +259,7 @@ body {
 }
 
 .theme-card--shadow {
-  background: radial-gradient(circle at top, #141621, #050608);
+  background: none;
 }
 
 /* ---------- RESPONSIVE ---------- */
