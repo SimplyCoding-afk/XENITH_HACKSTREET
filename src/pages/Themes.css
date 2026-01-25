@@ -1,9 +1,43 @@
 .themes {
   min-height: 100vh;
-  background: #0e0e0e;
-  color: white;
-  padding: 60px;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(5, 6, 8, 0.45),
+      rgba(5, 6, 8, 0.7)
+    ),
+    url("/images/themes/page_bg3.jpeg");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
+.themes::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+.themes::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 120px rgba(0,0,0,0.8);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .themes {
+    background-position: center;
+    padding: 4rem 1.5rem;
+  }
+}
+
 @font-face {
   font-family: "Brushstrike";
   src: url("/fonts/Brushstrike trial.ttf") format("truetype");
@@ -68,15 +102,52 @@ body {
 }
 
 .themes__title {
- font-family: "Brushstrike", sans-serif;
-  letter-spacing: 3px;
-  font-size: 3.2rem;
-  text-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.6),
-    0 0 10px rgba(179, 0, 27, 0.4);
+  /* Your Original Base Styles */
+  font-family: "Brushstrike", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #ffffff; 
   text-transform: uppercase;
+  letter-spacing: 6px; 
+  padding: 15px 40px;
+  position: relative;
+  display: inline-block;
+
+  text-shadow: 3px 3px 0px #c52540;
+
+  animation: tech-flicker 4s infinite;
+  z-index: 1;
 }
 
+/* The "Tech Container" Frame */
+.themes__title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(197, 37, 64, 0.1); /* Very subtle red tint */
+  border-left: 4px solid #c52540;
+  border-right: 4px solid #c52540;
+  
+  /* Creates the angled "Hardware" shape */
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+  z-index: -1;
+}
+
+/* Flicker Animation to simulate a digital screen glitch */
+@keyframes tech-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    transform: skew(0deg);
+  }
+  20%, 24%, 55% {
+    opacity: 0.8;
+    transform: skew(1deg); /* Slight jitter */
+    color: #c52540;
+  }
+}
 .themes__subtitle {
   margin-top: 1rem;
   font-style: italic;
