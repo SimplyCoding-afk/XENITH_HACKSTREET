@@ -51,8 +51,10 @@ html {
 
 .hero-logo {
   /* Size & Spacing */
-  width: 75%;
-  max-width: 800px;
+  width: 80%;
+  max-width: 850px;
+  min-width: 350px;
+  height: auto;
   display: block;
   margin: 0 auto 10px;
 
@@ -66,7 +68,7 @@ html {
   mix-blend-mode: screen;
 
   /* Optional: Ensures it is fully opaque */
-  opacity: 1;
+  opacity: 0.85;
 }
 
 /* Apply it to the content */
