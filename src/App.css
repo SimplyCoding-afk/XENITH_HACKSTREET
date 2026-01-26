@@ -31,13 +31,10 @@ body, html {
   display: block; 
 }
 
-.content-layer > * {
-  pointer-events: auto;
-}
 
-/* --- 4. THE FIERY ORANGE LOGO (UPDATED) --- */
+/* --- 4. THE FIERY ORANGE LOGO --- */
 .hero-logo {
-  /* Default Size (Mobile Friendly) */
+  /* Size & Spacing */
   width: 85%;
   max-width: 800px;
   min-width: 300px;
@@ -45,16 +42,14 @@ body, html {
   display: block;
   margin: 0 auto 5px; 
   
-  /* --- NEW FILTER FOR MORE INTENSE ORANGE/RED --- */
-  /* hue-rotate(330deg) pushes it further from yellow towards red */
-  /* saturate(500%) makes the color extremely vivid */
-  /* drop-shadow is larger and more opaque for a bigger glow */
+  /* Color Filter */
   filter: sepia(100%) saturate(400%) hue-rotate(330deg) drop-shadow(0 0 30px rgba(255, 60, 0, 0.9));
+
+  pointer-events: auto; 
 }
 
 /* --- 5. RESPONSIVE POSITIONING --- */
 
-/* Mobile: Centered */
 .home-container {
   display: flex;
   flex-direction: column;
@@ -64,7 +59,9 @@ body, html {
   width: 100vw;
   box-sizing: border-box;
   padding-bottom: 90px; 
-  padding-right: 0px;   
+  padding-right: 0px; 
+
+  pointer-events: none; 
 }
 
 /* Laptop: Shifted Left */
@@ -77,4 +74,9 @@ body, html {
   .hero-logo {
     width: 65%; 
   }
+}
+
+/* --- 6. BUTTONS  --- */
+.enter-btn, button, a {
+  pointer-events: auto; 
 }

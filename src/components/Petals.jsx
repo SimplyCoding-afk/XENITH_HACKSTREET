@@ -377,7 +377,7 @@ const Petals = () => {
                 width: "100%",
                 height: "100%",
                 zIndex: 10,
-                pointerEvents: "none",
+                pointerEvents: "auto",
                 opacity: 1, // INCREASED: Overall component opacity
             }}
         />
