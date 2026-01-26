@@ -1,30 +1,35 @@
+// src/App.jsx
+import React from "react";
 import Petals from "./components/Petals";
 import SamuraiBackground from "./components/SamuraiBackground";
-import ScrollNav from "./components/ScrollNav"; // <--- Import it
+import SideScrollMenu from "./components/SideScrollMenu"; 
+import CountdownTimer from "./components/CountdownTimer"; // <--- Import the timer
 import "./App.css";
-import logoImg from "./assets/hackstreet_logo.png";
+
+// Your logo
+import logoImg from "./assets/hackstreet_4.png"; 
 
 function App() {
   return (
     <div className="main-wrapper">
-
+      
+      {/* 1. Background Layer */}
       <SamuraiBackground />
       <Petals />
-
-      <div className="vertical-text left">武士道</div>
-      <div className="vertical-text right">ハックストリート</div>
-
+      
+      {/* 3. Center Content Layer */}
       <div className="content-layer">
-        <img src={logoImg} alt="HACKSTREET" className="hero-logo" />
+        
+        {/* Logo */}
+        <img src={logoImg} alt="HACKSTREET 4.0" className="hero-logo" />
+        
+        {/* Timer added right here below the logo */}
+        <CountdownTimer />
 
-        {/* Note: I removed the "Enter Dojo" button since you are adding 5 scrolls now.
-            If you want to keep the big button AND the scrolls, just leave this line here: */}
-        {/* <button className="enter-btn">ENTER DOJO</button> */}
       </div>
 
-      {/* --- ADD THE SCROLL NAV HERE --- */}
-      <ScrollNav />
-      {/* ------------------------------- */}
+      {/* 4. The Menu */}
+      <SideScrollMenu />
 
     </div>
   );

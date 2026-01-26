@@ -1,0 +1,135 @@
+/* src/components/SideScrollMenu.css */
+
+/* Import the cinematic font */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap');
+
+/* --- CONTAINER --- */
+.side-menu-container {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.8));
+}
+
+/* --- THE PAPER (Hidden by default) --- */
+.menu-paper {
+  height: 300px; /* Height of the scroll */
+  width: 0; /* Starts closed */
+  overflow: hidden;
+  
+  /* Dark Ash Parchment Texture */
+  background: linear-gradient(
+    to right, 
+    #1a1a1a 0%, 
+    #2e2e2e 50%, 
+    #1a1a1a 100%
+  );
+  border-top: 2px solid #3d3d3d;
+  border-bottom: 2px solid #3d3d3d;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Smooth Slide Animation */
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- THE OPEN STATE --- */
+.side-menu-container.open .menu-paper {
+  width: 250px; /* Width when unrolled */
+}
+
+/* --- THE NAVIGATION LINKS --- */
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  min-width: 200px; /* Prevents text wrapping while opening */
+}
+
+.menu-link {
+  font-family: 'Cinzel', serif;
+  /* CHANGED: Moonlight Silver -> Metallic Gold (Option 1) */
+  color: #d4af37; 
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.4s ease;
+}
+
+.menu-link:hover {
+  /* CHANGED: Red Glow -> White Text with Gold Glow (Option 1) */
+  color: #ffffff; 
+  text-shadow: 0 0 10px #d4af37;
+  transform: scale(1.1);
+}
+
+/* Reveal text when open */
+.side-menu-container.open .menu-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- THE WOODEN HANDLE (The Button) --- */
+.menu-handle {
+  width: 40px;
+  height: 340px; /* Slightly taller than paper */
+  cursor: pointer;
+  
+  /* Deep Dark Wood Texture */
+  background: linear-gradient(to right, #0f0505, #3e1a1a, #0f0505);
+  border: 1px solid #000;
+  border-radius: 0 8px 8px 0; /* Rounded on the right side */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 2px 0 5px rgba(255,255,255,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.menu-handle:hover {
+  background: linear-gradient(to right, #1a0a0a, #5c2a2a, #1a0a0a);
+}
+
+/* Vertical Text on the Handle */
+.handle-text {
+  writing-mode: vertical-rl; /* Makes text vertical */
+  text-orientation: mixed;
+  /* CHANGED: Dark Red -> Rich Gold (Option 1) */
+  color: #d4af37; 
+  font-family: 'Cinzel', serif;
+  font-weight: 800;
+  letter-spacing: 5px;
+  user-select: none;
+  transition: color 0.3s;
+  text-shadow: 0 2px 2px rgba(0,0,0,1);
+}
+
+.side-menu-container.open .handle-text {
+  /* CHANGED: Bright Red -> Pure White (Option 1) */
+  color: #ffffff; 
+  text-shadow: 0 0 8px #d4af37;
+}
+
+/* Decorative Gold/Iron caps on the handle */
+.handle-decoration {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(to bottom, #333, #111);
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+}
+.handle-decoration.top { top: 10px; }
+.handle-decoration.bottom { bottom: 10px; }

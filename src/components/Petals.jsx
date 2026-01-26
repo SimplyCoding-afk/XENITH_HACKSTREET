@@ -28,7 +28,7 @@ const Petals = () => {
                         image: { src: petalImg, width: 32, height: 32 }
                     },
                     opacity: {
-                        value: 0.8,
+                        value: 0.9,
                         random: true,
                         anim: {
                             enable: true,
