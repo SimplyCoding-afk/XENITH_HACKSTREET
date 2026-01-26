@@ -1,0 +1,44 @@
+/* src/components/Petals.css - SMOOTH ANIMATION OPTIMIZATIONS */
+#tsparticles {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+/* Smooth scrolling and performance */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hardware acceleration */
+#tsparticles canvas {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+    #tsparticles {
+        animation: none !important;
+        opacity: 0.5;
+    }
+    
+    .scroll-item,
+    .hero-logo,
+    .vertical-text {
+        animation: none !important;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    #tsparticles {
+        opacity: 0.6;
+    }
+}
