@@ -1,239 +1,80 @@
 /* src/App.css */
 
-/* --- 1. GLOBAL RESET --- */
-body,
-html {
+/* 1. Global Reset */
+body, html {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  /* Prevents scrollbars */
   font-family: 'Courier New', Courier, monospace;
-  /* Tech/Hacker font */
   background-color: #000;
-  /* Fallback color */
 }
 
-/* --- 2. MAIN WRAPPER --- */
-/* This holds the background, petals, and content together */
+/* 2. Main Wrapper */
 .main-wrapper {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-
-}
-
-/* --- 3. CONTENT LAYER --- */
-/* This sits on top of the video and petals */
-.content-layer {
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* Perfectly centers it */
-  z-index: 20;
-  /* Highest priority */
-  text-align: center;
   width: 100%;
-  pointer-events: none;
-  /* Lets clicks pass through to empty areas */
-}
-
-/* --- 4. THE LOGO (MAGIC TRICK) --- */
-/* src/App.css */
-/* src/App.css */
-/* src/App.css */
-
-/* src/App.css */
-
-/* src/App.css */
-
-.hero-logo {
-  /* Size & Spacing */
-  width: 80%;
-  max-width: 850px;
-  min-width: 350px;
-  height: auto;
-  display: block;
-  margin: 0 auto 10px;
-
-  /* --- THE COLOR CHANGER --- */
-
-  /* 1. Turns Black Text -> White Text */
-  /* Turns White Background -> Black Background */
-  filter: invert(0);
-
-  /* 2. Makes the new Black Background invisible */
-  mix-blend-mode: screen;
-
-  /* Optional: Ensures it is fully opaque */
-  opacity: 0.85;
-}
-
-/* Apply it to the content */
-.content-layer {
-  /* ... keep your existing styles ... */
-  /*animation: fadeUp 2s ease-out forwards;
-  /* 2-second slow entrance */
-}
-
-.vertical-text {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.4);
-  /* Faint/Subtle */
-  font-size: 1.5rem;
-  writing-mode: vertical-rl;
-  /* Makes text vertical */
-  letter-spacing: 15px;
-  font-weight: bold;
-  z-index: 10;
-  user-select: none;
-}
-
-.left {
-  left: 40px;
-}
-
-.right {
-  right: 40px;
-}
-
-/* Hide on mobile so it doesn't crowd the screen */
-@media (max-width: 768px) {
-  .vertical-text {
-    display: none;
-  }
-}
-
-/* --- THE GLITCH BUTTON --- */
-.enter-btn {
-  position: relative;
-  background: rgba(0, 0, 0, 0.4);
-  /* Dark glass effect */
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  /* Thin white border */
-  padding: 15px 45px;
-  font-family: inherit;
-  /* Uses your courier font */
-  font-size: 1.1rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  cursor: pointer;
+  height: 100vh;
   overflow: hidden;
-  /* Important: keeps the light slash inside the button */
-  transition: all 0.3s ease;
-  backdrop-filter: blur(4px);
-  /* Blurs the background behind it */
-  pointer-events: auto;
-  /* Makes sure you can click it */
-  margin-top: 20px;
-  /* Adds space between logo and button */
 }
 
-/* The "Slash" of light (Hidden by default) */
-.enter-btn::before {
-  content: '';
+/* 3. Content Layer */
+.content-layer {
   position: absolute;
   top: 0;
-  left: -100%;
-  /* Starts invisible off to the left */
+  left: 0;
   width: 100%;
   height: 100%;
-  /* A slanted beam of light */
-  background: linear-gradient(120deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent);
-  transition: 0.5s;
+  z-index: 100; 
+  pointer-events: none; 
+  display: block; 
 }
 
-/* --- HOVER EFFECTS --- */
-
-/* 1. Change colors */
-.enter-btn:hover {
-  border-color: #ff0033;
-  /* Turns Neon Red */
-  color: #fff;
-  /* Adds a red glow around the button */
-  box-shadow: 0 0 15px rgba(255, 0, 51, 0.6), inset 0 0 10px rgba(255, 0, 51, 0.2);
-  /* Adds a red glow to the text */
-  text-shadow: 0 0 8px #ff0033;
-  transform: scale(1.05);
-  /* Grows slightly */
+.content-layer > * {
+  pointer-events: auto;
 }
 
-/* 2. Trigger the slash animation */
-.enter-btn:hover::before {
-  left: 100%;
-  /* Moves rapidly to the right */
+/* --- 4. THE FIERY ORANGE LOGO (UPDATED) --- */
+.hero-logo {
+  /* Default Size (Mobile Friendly) */
+  width: 85%;
+  max-width: 800px;
+  min-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto 5px; 
+  
+  /* --- NEW FILTER FOR MORE INTENSE ORANGE/RED --- */
+  /* hue-rotate(330deg) pushes it further from yellow towards red */
+  /* saturate(500%) makes the color extremely vivid */
+  /* drop-shadow is larger and more opaque for a bigger glow */
+  filter: sepia(100%) saturate(400%) hue-rotate(330deg) drop-shadow(0 0 30px rgba(255, 60, 0, 0.9));
 }
 
-/* src/App.css */
+/* --- 5. RESPONSIVE POSITIONING --- */
 
-/* --- 7. JAPANESE SIDE TEXT --- */
-.vertical-text {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  /* Centers it vertically */
-  color: rgba(255, 255, 255, 0.5);
-  /* Subtle/Faint white */
-  font-size: 1.5rem;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
-  letter-spacing: 15px;
-  /* Spaced out aesthetics */
-  writing-mode: vertical-rl;
-  /* FLIPS TEXT VERTICALLY */
-  text-orientation: upright;
-  user-select: none;
-  /* Prevents highlighting */
-  z-index: 10;
-
-  /* Start invisible */
-  opacity: 0;
-
-  /* Apply Animation: 2 seconds long, wait 1 second before starting */
-  animation: sideFadeIn 2s ease-out forwards 1s;
+/* Mobile: Centered */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; 
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding-bottom: 90px; 
+  padding-right: 0px;   
 }
 
-/* Specific Positions */
-.left {
-  left: 40px;
-  border-left: 1px solid rgba(255, 0, 51, 0.3);
-  /* Optional: Red decorative line */
-  padding-left: 10px;
-}
-
-.right {
-  right: 40px;
-  border-right: 1px solid rgba(255, 0, 51, 0.3);
-  /* Optional: Red decorative line */
-  padding-right: 10px;
-}
-
-/* --- ANIMATION KEYFRAMES --- */
-@keyframes sideFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-40%);
-    /* Starts slightly higher */
+/* Laptop: Shifted Left */
+@media (min-width: 768px) {
+  .home-container {
+    padding-right: 180px; 
+    padding-bottom: 20px;
   }
-
-  100% {
-    opacity: 1;
-    transform: translateY(-50%);
-    /* Settles in center */
-  }
-}
-
-/* Hide on mobile to prevent clutter */
-@media (max-width: 768px) {
-  .vertical-text {
-    display: none;
+  
+  .hero-logo {
+    width: 65%; 
   }
 }

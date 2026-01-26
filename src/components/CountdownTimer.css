@@ -1,120 +1,107 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&display=swap');
+/* src/components/CountdownTimer.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap');
 
-/* Wrapper to center it or place it */
 .timer-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 20px; /* Adjust spacing as needed */
-  z-index: 10;
+  width: 100%;
   position: relative;
+  z-index: 100;
+  margin-top: 10px; 
 }
 
-/* The Glass Container */
-.timer-container {
+/* THE HORIZONTAL GLASS BOX */
+.timer-glass-panel {
   display: flex;
+  flex-direction: row; 
   align-items: center;
-  gap: 15px;
-  padding: 20px 40px;
+  justify-content: center;
+  gap: 20px; /* Reduced gap */
   
-  /* Dark Glassmorphism */
-  background: rgba(0, 0, 0, 0.6); 
+  background: rgba(0, 0, 0, 0.5); 
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle Gold Border */
-  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
   
-  /* Bottom Glow */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
-              0 0 20px rgba(255, 0, 60, 0.2); /* Red ambient glow */
+  /* Reduced padding to make the box smaller */
+  padding: 10px 35px; 
+  
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* Individual Boxes */
-.time-box {
+.time-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  min-width: 80px;
 }
 
-/* The Numbers */
-.time-value {
+.number {
   font-family: 'Cinzel', serif;
-  font-size: 3.5rem;
+  
+  /* Reduced font size (was 2.8rem) */
+  font-size: 2.2rem; 
+  
   font-weight: 800;
-  color: #ffffff;
+  color: #fff;
   line-height: 1;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
-/* Make seconds pulse red */
-.time-value.red-glow {
-  color: #ff003c; /* Sakura Red */
+/* --- JAPANESE KANJI STYLING --- */
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  line-height: 1.2;
+}
+
+.kanji {
+  font-family: 'Yu Mincho', 'SimSun', 'Hiragino Mincho ProN', serif;
+  
+  /* Reduced kanji size */
+  font-size: 1rem; 
+  
+  color: #d4af37; 
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+.eng {
+  font-family: 'Cinzel', serif;
+  font-size: 0.5rem;
+  color: #aaa; 
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+/* The Colon Separators */
+.separator {
+  font-family: 'Cinzel', serif;
+  
+  /* Reduced separator size */
+  font-size: 1.8rem; 
+  
+  color: #d4af37;
+  margin-top: -25px; 
+  opacity: 0.7;
+}
+
+/* Red Pulse */
+.number.red-pulse {
+  color: #ff003c;
   text-shadow: 0 0 20px rgba(255, 0, 60, 0.8);
   animation: pulse 1s infinite alternate;
 }
 
-/* The English Labels (DAYS, HOURS...) */
-.time-label {
-  font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-  color: #d4af37; /* Gold */
-  letter-spacing: 3px;
-  margin-top: 5px;
-  font-weight: 600;
-}
-
-/* The Japanese Kanji (Background decoration) */
-.kanji-label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 4rem;
-  color: rgba(255, 0, 60, 0.15); /* Very faint red */
-  font-family: 'Yu Mincho', serif; /* Standard Japanese Serif */
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Separator dots (:) */
-.separator {
-  font-family: 'Cinzel', serif;
-  font-size: 3rem;
-  color: #d4af37;
-  margin-top: -20px; /* Align with numbers */
-  opacity: 0.8;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .timer-container {
-    padding: 15px 20px;
-    gap: 5px;
-  }
-  
-  .time-value {
-    font-size: 2rem;
-  }
-  
-  .time-label {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-  }
-  
-  .separator {
-    font-size: 1.5rem;
-    margin-top: -15px;
-  }
-  
-  .kanji-label {
-    font-size: 2.5rem;
-  }
-}
-
-/* Pulse Animation for Seconds */
 @keyframes pulse {
-  from { text-shadow: 0 0 10px rgba(255, 0, 60, 0.6); }
+  from { text-shadow: 0 0 10px rgba(255, 0, 60, 0.5); }
   to { text-shadow: 0 0 25px rgba(255, 0, 60, 1); }
+}
+
+@media (max-width: 768px) {
+  .timer-glass-panel { padding: 8px 15px; gap: 8px; }
+  .number { font-size: 1.5rem; }
+  .separator { font-size: 1.2rem; margin-top: -10px; }
+  .kanji { font-size: 0.8rem; }
 }

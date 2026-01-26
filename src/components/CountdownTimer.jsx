@@ -1,3 +1,4 @@
+// src/components/CountdownTimer.jsx
 import React, { useState, useEffect } from 'react';
 import './CountdownTimer.css';
 
@@ -10,7 +11,7 @@ const CountdownTimer = () => {
   });
 
   useEffect(() => {
-    // TARGET DATE: Feb 16, 2026 (Based on your system clock in the screenshot)
+    // TARGET DATE: Feb 16, 2026
     const targetDate = new Date("Feb 16, 2026 00:00:00").getTime();
 
     const interval = setInterval(() => {
@@ -34,40 +35,50 @@ const CountdownTimer = () => {
 
   return (
     <div className="timer-wrapper">
-      <div className="timer-container">
-        {/* DAYS */}
-        <div className="time-box">
-          <span className="kanji-label">日</span>
-          <div className="time-value">{timeLeft.days < 10 ? `0${timeLeft.days}` : timeLeft.days}</div>
-          <div className="time-label">DAYS</div>
+      <div className="timer-glass-panel">
+        
+        {/* Days (日) */}
+        <div className="time-unit">
+          <div className="number">{timeLeft.days < 10 ? `0${timeLeft.days}` : timeLeft.days}</div>
+          <div className="label">
+            <span className="kanji">日</span>
+            <span className="eng">DAYS</span>
+          </div>
         </div>
 
         <div className="separator">:</div>
 
-        {/* HOURS */}
-        <div className="time-box">
-          <span className="kanji-label">時</span>
-          <div className="time-value">{timeLeft.hours < 10 ? `0${timeLeft.hours}` : timeLeft.hours}</div>
-          <div className="time-label">HOURS</div>
+        {/* Hours (時) */}
+        <div className="time-unit">
+          <div className="number">{timeLeft.hours < 10 ? `0${timeLeft.hours}` : timeLeft.hours}</div>
+          <div className="label">
+            <span className="kanji">時</span>
+            <span className="eng">HRS</span>
+          </div>
         </div>
 
         <div className="separator">:</div>
 
-        {/* MINUTES */}
-        <div className="time-box">
-          <span className="kanji-label">分</span>
-          <div className="time-value">{timeLeft.minutes < 10 ? `0${timeLeft.minutes}` : timeLeft.minutes}</div>
-          <div className="time-label">MINS</div>
+        {/* Minutes (分) */}
+        <div className="time-unit">
+          <div className="number">{timeLeft.minutes < 10 ? `0${timeLeft.minutes}` : timeLeft.minutes}</div>
+          <div className="label">
+            <span className="kanji">分</span>
+            <span className="eng">MINS</span>
+          </div>
         </div>
 
         <div className="separator">:</div>
 
-        {/* SECONDS */}
-        <div className="time-box">
-          <span className="kanji-label">秒</span>
-          <div className="time-value red-glow">{timeLeft.seconds < 10 ? `0${timeLeft.seconds}` : timeLeft.seconds}</div>
-          <div className="time-label">SECS</div>
+        {/* Seconds (秒) */}
+        <div className="time-unit">
+          <div className="number red-pulse">{timeLeft.seconds < 10 ? `0${timeLeft.seconds}` : timeLeft.seconds}</div>
+          <div className="label">
+            <span className="kanji">秒</span>
+            <span className="eng">SECS</span>
+          </div>
         </div>
+
       </div>
     </div>
   );

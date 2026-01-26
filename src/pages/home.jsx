@@ -1,23 +1,26 @@
-import React from 'react';
-import Petals from '../components/Petals';
-import SamuraiBackground from '../components/SamuraiBackground';
-import Samurai from '../components/Samurai'; // <--- Import him
+// src/pages/Home.jsx
+import React from "react";
+import CountdownTimer from "../components/CountdownTimer"; 
+import logoImg from "../assets/hackstreet logo.png"; // Check filename
 
 const Home = () => {
   return (
+    // We removed the big style={{...}} block because it's now in App.css
     <div className="home-container">
-      <SamuraiBackground />
+      
+      {/* 1. The Logo */}
+      <img 
+        src={logoImg} 
+        alt="HACKSTREET 4.0" 
+        className="hero-logo"
+        style={{ minHeight: '100px' }} 
+      />
 
-      {/* The Samurai stands on the platform */}
-      <Samurai />
-
-      {/* Petals fall IN FRONT of the samurai */}
-      <Petals />
-
-      <div className="content-layer">
-        <h1>HACKSTREET</h1>
-        <button className="enter-btn">ENTER DOJO</button>
-      </div>
+      {/* 2. The Timer */}
+      <CountdownTimer />
+      
     </div>
   );
 };
+
+export default Home;
